@@ -74,7 +74,7 @@ class RebarGroup(Base, speckle_type=GEOMETRY + "RebarGroup"):
                     meshes.append(mesh)
         return meshes
     
-    def _line_to_cylinder_mesh(self, line: Line, num_segments: int = 36) -> Mesh:
+    def _line_to_volumetric_mesh(self, line: Line, num_segments: int = 36) -> Mesh:
         vertices = []
         faces = []
 
