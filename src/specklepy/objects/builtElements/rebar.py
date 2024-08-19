@@ -44,7 +44,7 @@ class RebarGroup(Base, speckle_type=GEOMETRY + "RebarGroup"):
     
     def _generate_line_representation(self) -> List[Line]:
         '''
-        internal method to apply representation to rebar group
+        internal method to apply line representation to rebar group
         '''
         lines = []
         for i in range(self.number):
@@ -59,7 +59,7 @@ class RebarGroup(Base, speckle_type=GEOMETRY + "RebarGroup"):
 
     def _generate_volumetric_representation(self) -> List[Mesh]:
         '''
-        logic to transform line representation to volumetric mesh
+        internal method to apply volumetric representation to rebar group
         '''
         meshes = []
         for i in range(self.number):
@@ -75,6 +75,9 @@ class RebarGroup(Base, speckle_type=GEOMETRY + "RebarGroup"):
         return meshes
     
     def _line_to_volumetric_mesh(self, line: Line, num_segments: int = 36) -> Mesh:
+        '''
+        logic to extrude lines to volumetric mesh
+        '''
         vertices = []
         faces = []
 
