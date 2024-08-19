@@ -5,7 +5,7 @@ import math
 
 GEOMETRY = "Objects.Geometry."
 
-class RepresentationMode:
+class RebarRepresentationMode:
     AS_LINE = "AsLine"
     AS_VOLUME = "AsVolume"
 
@@ -19,7 +19,7 @@ class RebarGroup(Base, speckle_type=GEOMETRY + "RebarGroup"):
                  end_hook: Optional['RebarHook'] = None, 
                  volume: float = 0.0, 
                  units: str = 'meters', 
-                 representation_mode: str = RepresentationMode.AS_LINE):
+                 representation_mode: str = RebarRepresentationMode.AS_LINE):
         super().__init__()
         self.shape = shape
         self.number = number
@@ -37,7 +37,7 @@ class RebarGroup(Base, speckle_type=GEOMETRY + "RebarGroup"):
         '''
         master function to generate representation of the rebar
         '''
-        if self.representation_mode == RepresentationMode.AS_VOLUME:
+        if self.representation_mode == RebarRepresentationMode.AS_VOLUME:
             return self._generate_volumetric_representation()
         else:
             return self._generate_line_representation()
